@@ -1,0 +1,21 @@
+# ---------------------------------------------------------------------------
+# CDISC Pilot 01 discontinuation-prediction "AI function" -- dependencies
+# Tested with Python 3.11.  Install with:  pip install -r requirements.txt
+# ---------------------------------------------------------------------------
+
+# --- core (required) ---
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scipy>=1.10             # log-rank test statistic (also required by scikit-learn)
+matplotlib>=3.7        # ROC / PR / confusion plots
+joblib>=1.3            # persist trained models
+requests>=2.28         # only for --fetch-reference (download reference study)
+
+# --- report (required for the Word deliverable) ---
+python-docx>=1.1       # combined Word report (run_pipeline.py --report word/both)
+
+# --- optional (features degrade gracefully if absent) ---
+# pyreadstat>=1.2      # faster / more robust XPORT reader
+# shap>=0.44           # SHAP attribution plot + shap_importance.csv
+lifelines>=0.27          # survival analysis: Kaplan-Meier, log-rank, Cox + PH check, competing risks
